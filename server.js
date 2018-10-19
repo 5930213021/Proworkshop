@@ -121,7 +121,7 @@ app.post('/products/addnewpro',function(req,res){
     var title = req.body.title;
     var price = req.body.price;
     var sql = `INSERT INTO products (id,title,price) VALUES ('${id}','${title}' ,'${price}')`;
-    db.query(sql)
+    db.any(sql)
     .then(function(data){
         res.redirect('/products')
     })
@@ -131,9 +131,9 @@ app.post('/products/addnewpro',function(req,res){
 });
 
 app.get('/addnewpro',function(req,res){
-    var time = moment().format('MMMM Do , h:mm:ss a');
-    res.render('pages/addnewpro', { time: time});
-
+    //var time = moment().format('MMMM Do , h:mm:ss a');
+    //res.render('pages/addnewpro', { time: time});
+    res.render('pages/addnewpro')
 });
 
 //routing of delete data
