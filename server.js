@@ -116,7 +116,7 @@ app.post('/products/update',function(req,res){
 });
 
 //routing of insert data
-app.post('/product/addnewpro',function(req,res){
+app.post('/products/addnewpro',function(req,res){
     var id =req.body.id;
     var title = req.body.title;
     var price = req.body.price;
