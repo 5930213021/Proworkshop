@@ -45,7 +45,6 @@ app.get('/products',function(req,res){
     db.any(sql)
     .then(function(data){
         console.log('DATA :' + data);
-        //res.json(data);
         res.render('pages/products',{products :data})
     })
     .catch(function(error){
@@ -54,9 +53,7 @@ app.get('/products',function(req,res){
     });
 
 //เพิ่ม routing of product
-app.get('/products/:pid',function(req,res){
-    // console.log("GET: " + req.params.pid);
-    // res.end();
+app.get('/products/:pid',function(req,res){  
     //เอาidproductมาเตรียมเพื่อจะsaveต่อไป
     var pid = req.params.pid;
     var sql = "Select * from products where id =" + pid;
@@ -71,7 +68,6 @@ app.get('/products/:pid',function(req,res){
 
 //Display all users
 app.get('/users',function(req,res){
-    //res.download('static/index.html');
      var id= req.param('id');
      var sql = 'select * from users';
      if(id){
@@ -108,11 +104,11 @@ app.get('/users/:id',function(req,res){
  });
 
 //routing of update data
-app.post('/product/update',function(req,res){
+app.post('/products/update',function(req,res){
     var id =req.body.id;
     var title = req.body.title;
     var price = req.body.price;
-    var sql = `Update product set title = ${title}, price = ${price} where id =${id}`;
+    var sql = `Update products set title = ${title}, price = ${price} where id =${id}`;
     console.log('UPDATE:' +sql);
     res.redirect('/products'); 
     res.send(sql);
@@ -120,7 +116,7 @@ app.post('/product/update',function(req,res){
 });
 
 //routing of insert data
-app.post('/product/insert',function(req,res){
+app.post('/products/addnewpro',function(req,res){
     var id =req.body.id;
     var title = req.body.title;
     var price = req.body.price;
@@ -134,7 +130,7 @@ app.post('/product/insert',function(req,res){
     })
 });
 
-app.get('/insert',function(req,res){
+app.get('/addnewpro',function(req,res){
     var time = moment().format('MMMM Do , h:mm:ss a');
     response.render('pages/addnewpro', { time: time});
 
