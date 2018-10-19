@@ -116,11 +116,11 @@ app.post('/products/update',function(req,res){
 });
 
 //routing of insert data
-app.post('/products/addnewpro',function(req,res){
+app.post('/product/addnewpro',function(req,res){
     var id =req.body.id;
     var title = req.body.title;
     var price = req.body.price;
-    var sql = `INSERT INTO product (id,title,price) VALUES ('${id},${title} ,${price}')`;
+    var sql = `INSERT INTO products (id,title,price) VALUES ('${id},${title} ,${price}')`;
     db.query(sql)
     .then(function(data){
         response.redirect('/products')
