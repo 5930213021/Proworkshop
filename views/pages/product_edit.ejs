@@ -1,7 +1,8 @@
 <% include ../partials/header %>
 <form action="/product/update" method="post" >
 <!--b4-from-input-->
-<div class="form-group" style="padding: 15px;">
+<div class="top"style="padding: 15px;">
+<div class="form-group" >
   <br><br><br>
   <label for="">ID</label>
   <input type="number"
@@ -22,7 +23,7 @@
     class="form-control" value="<%= product.price %>" name="price" id="" aria-describedby="helpId" placeholder="">
   <small id="helpId" class="form-text text-muted">Product Price</small>
 </div>
-
+</div> 
 <!-- b4-form-submit-->
 <button type="submit" class="btn btn-primary">Save</button>
 <button type="submit" class="btn btn-primary">Save</button>
