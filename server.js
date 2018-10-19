@@ -133,10 +133,28 @@ app.post('/product/insert',function(req,res){
         console.log('ERROR :'+ error);
     })
 });
+
 app.get('/addnewpro',function(req,res){
     var time = moment().format('MMMM Do , h:mm:ss a');
     response.render('pages/addnewpro', { time: time});
 
+});
+
+//routing of delete data
+app.post('/product_delete/:pid',function(req,res){
+    var pid = req.params.pid;
+    var sql = `DELETE from products `;
+    if(id){
+        sql += ' where id =' + id;
+    }
+    db.any(sql)
+        .then(function(data){
+            console.log('DATA :' + data);
+            response.redirect('/products')
+    })
+        .catch(function(error){
+        console.log('ERROR :' + error);
+    })
 });
 
 var port = process.env.PORT || 8080;
