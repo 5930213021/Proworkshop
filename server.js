@@ -119,8 +119,25 @@ app.post('/product/update',function(req,res){
 
 });
 
-// console.log('App is running at http://localhost:8080');
-// app.listen(8080); //8080 ไว้สำหรับtest app
+//routing of insert data
+app.post('/product/insert',function(req,res){
+    var id =req.body.id;
+    var title = req.body.title;
+    var price = req.body.price;
+    var sql = `INSERT INTO product (id,title,price) VALUES ('${id},${title} ,${price}')`;
+    db.query(sql)
+    .then(function(data){
+        response.redirect('/products')
+    })
+    .catch(function(data){
+        console.log('ERROR :'+ error);
+    })
+});
+app.get('/addnewpro',function(req,res){
+    var time = moment().format('MMMM Do , h:mm:ss a');
+    response.render('pages/addnewpro', { time: time});
+
+});
 
 var port = process.env.PORT || 8080;
 app.listen(port, function() {
