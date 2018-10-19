@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-กลไลบอกชื่อserver โดยการส่งข้อความไป (/) คือ URL
+//กลไลบอกชื่อserver โดยการส่งข้อความไป (/) คือ URL
 /*app.get('/',function(require,response){
     response.send('Hello, Express');
 });
