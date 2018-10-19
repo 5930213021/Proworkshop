@@ -75,18 +75,16 @@ app.get('/users',function(req,res){
      }
      db.any(sql)
      .then(function(data){
-         console.log('DATA :' + data);
-         //res.json(data);
-         res.render('pages/users',{users :data})
+        console.log('DATA :' + data);
+        res.render('pages/users',{users :data})
      })
      .catch(function(error){
-         console.log('ERROR :' + error);
+        console.log('ERROR :' + error);
      })
  });
 
 //Display all users id
 app.get('/users/:id',function(req,res){
-    //res.download('static/index.html');
     var id = req.params.id;
     var sql = 'select * from users';
     if(id){
@@ -94,9 +92,8 @@ app.get('/users/:id',function(req,res){
     }
     db.any(sql)
     .then(function(data){
-         console.log(data);
-         //res.json(data);
-         res.render('pages/users',{users :data})
+        console.log(data);
+        res.render('pages/users',{users :data})
     })
      .catch(function(error){
          console.log('ERROR :' + error);
@@ -152,6 +149,7 @@ app.post('/product_delete/:pid',function(req,res){
         console.log('ERROR :' + error);
     })
 });
+
 
 var port = process.env.PORT || 8080;
 app.listen(port, function() {
