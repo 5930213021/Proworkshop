@@ -1,4 +1,10 @@
 <% include ../partials/header %>
+<script language="javascript">
+function fncAlert(){
+
+alert('Do you want to delete product');
+
+}
 <form action="/product/update" method="post" >
 <!--b4-from-input-->
 <div class="top"style="padding: 15px;">
@@ -30,10 +36,5 @@
 <a name="" id=""  class="btn btn-danger" OnClick="JavaScript:fncAlert();" href="/product_delete/<%= product.id %>" role="button">DELETE</a>
 </form>
 
-<script language="javascript">
-function fncAlert(){
 
-alert('Do you want to delete product');
-
-}
 <% include ../partials/footer %>
