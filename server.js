@@ -112,7 +112,7 @@ app.post('/product/update',function(req,res){
 
 });
 
-//routing of insert data
+//routing of insert data addnewpro.ejs
 app.post('/products/addnewpro',function(req,res){
     var id =req.body.id;
     var title = req.body.title;
