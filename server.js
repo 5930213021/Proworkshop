@@ -139,6 +139,7 @@ app.post('/product_delete/',function(req,res){
     })
 });
 
+
 //routing of insert data addnewpro.ejs
 app.post('/products/addnewpro',function(req,res){
     var id =req.body.id;
