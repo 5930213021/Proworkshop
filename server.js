@@ -203,7 +203,7 @@ app.get('/users_delete/:id', function (req, res) {
 });
 
 //routing of insert data addnewuser.ejs
-app.post('/users/addnewpro',function(req,res){
+app.post('/users/addnewusers',function(req,res){
     var id =req.body.id;
     var email = req.body.email;
     var password = req.body.password;
