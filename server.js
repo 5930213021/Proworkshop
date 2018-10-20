@@ -9,15 +9,6 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//กลไลบอกชื่อserver โดยการส่งข้อความไป (/) คือ URL
-/*app.get('/',function(require,response){
-    response.send('Hello, Express');
-});
-app.get('/test',function(require,response){
-    response.send('<H1>Test</H1>');
-}); */
-
-//app.use(express.static('static'));
 app.set('view engine', 'ejs');
 
 app.get('/',function(req,res){
