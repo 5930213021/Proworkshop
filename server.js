@@ -223,10 +223,8 @@ app.post('/products/addnewpro',function(req,res){
         console.log('ERROR :'+ error);
     })
 });
-app.get('/addnewpro',function(req,res){
-    //var time = moment().format('MMMM Do , h:mm:ss a');
-    //res.render('pages/addnewpro', { time: time});
-    res.render('pages/addnewpro')
+app.get('/addnewuser',function(req,res){
+    res.render('pages/addnewuser')
 });
 
 var port = process.env.PORT || 8080;
