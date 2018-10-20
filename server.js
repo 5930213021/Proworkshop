@@ -153,6 +153,7 @@ app.get('/addnewpro',function(req,res){
     res.render('pages/addnewpro')
 });
 
+
 //เพิ่ม routing of users
 app.get('/users/:pid',function(req,res){  
     var pid = req.params.pid;
@@ -168,7 +169,7 @@ app.get('/users/:pid',function(req,res){
 });
 
 //routing of update users edit data
-app.post('/product/update', function (req, res) {
+app.post('/users/update', function (req, res) {
     var id = req.body.id;
     var email = req.body.email;
     var password = req.body.password;
@@ -184,7 +185,7 @@ app.post('/product/update', function (req, res) {
 });
 
 //routing of delete users data
-app.get('/user_delete/:id', function (req, res) {
+app.get('/users_delete/:id', function (req, res) {
     var id = req.params.id;
     var sql = 'DELETE from users';
     if (id) {
@@ -202,7 +203,7 @@ app.get('/user_delete/:id', function (req, res) {
 });
 
 //routing of insert data addnewuser.ejs
-app.post('/products/addnewpro',function(req,res){
+app.post('/users/addnewpro',function(req,res){
     var id =req.body.id;
     var email = req.body.email;
     var password = req.body.password;
