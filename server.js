@@ -155,7 +155,7 @@ app.get('/addnewpro',function(req,res){
 
 
 //เพิ่ม routing of users
-app.get('/user/:pid',function(req,res){  
+app.get('/users/:pid',function(req,res){  
     var pid = req.params.pid;
     var sql = "Select * from users where id =" + pid;
     db.any(sql)
