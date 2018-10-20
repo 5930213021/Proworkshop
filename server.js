@@ -49,22 +49,6 @@ app.get('/users',function(req,res){
  });
 
 //Display all users id
-app.get('/users/:id',function(req,res){
-    var id = req.params.id;
-    var sql = 'select * from users';
-    if(id){
-        sql += ' where id =' + id;
-    }
-    db.any(sql)
-    .then(function(data){
-        console.log(data);
-        res.render('pages/users',{users :data})
-    })
-     .catch(function(error){
-         console.log('ERROR :' + error);
-    })
- });
-
 
 //Display all products แบบธรรมดา
 app.get('/products',function(req,res){
