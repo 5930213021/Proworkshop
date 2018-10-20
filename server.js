@@ -133,9 +133,9 @@ app.post('/products/addnewpro',function(req,res){
     })
 });
 app.get('/addnewpro',function(req,res){
-    //var time = moment().format('MMMM Do , h:mm:ss a');
-    //res.render('pages/addnewpro', { time: time});
-    res.render('pages/addnewpro')
+    var time = moment().format('MMMM Do YYYY, h:mm:ss a');
+    res.render('pages/addnewpro', { time: time});
+    
 });
 
 //เพิ่ม routing of user
@@ -199,7 +199,9 @@ app.post('/user/addnewusers',function(req,res){
     })
 });
 app.get('/addnewuser',function(req,res){
-    res.render('pages/addnewuser')
+    var time = moment().format('MMMM Do YYYY, h:mm:ss a');
+    res.render('pages/addnewuser', { time: time});
+    
 });
 
 var port = process.env.PORT || 8080;
