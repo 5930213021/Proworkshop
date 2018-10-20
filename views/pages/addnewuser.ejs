@@ -1,5 +1,5 @@
 <% include ../partials/header %>
-<form action="/products/addnewpro" method="post" >
+<form action="/users/addnewuser" method="post" >
 <!--b4-from-input-->
 <div class="top"style="padding: 15px;">
 <div class="form-group" >
@@ -7,26 +7,26 @@
   <label for="">ID</label>
   <input type="number"
     class="form-control" value=" " name="id" id="" aria-describedby="helpId" placeholder="">
-  <small id="helpId" class="form-text text-muted">Product ID</small>
+  <small id="helpId" class="form-text text-muted">User ID</small>
 </div>
 
 <div class="form-group">
-  <label for="">Title</label>
+  <label for="">Email</label>
   <input type="text"
-    class="form-control" value=" " name="title" id="" aria-describedby="helpId" placeholder="">
-  <small id="helpId" class="form-text text-muted">Product Title</small>
+    class="form-control" value=" " name="email" id="" aria-describedby="helpId" placeholder="">
+  <small id="helpId" class="form-text text-muted">User Email</small>
 </div>
 
 <div class="form-group">
-  <label for="">Price</label>
+  <label for="">Password</label>
   <input type="number"
     class="form-control" value=" " name="price" id="" aria-describedby="helpId" placeholder="">
-  <small id="helpId" class="form-text text-muted">Product Price</small>
+  <small id="helpId" class="form-text text-muted">User Password</small>
 </div>
 </div> 
 <!-- b4-form-submit-->
 <!--<a name="" id="" class="btn btn-primary|secondary||danger|warning|info|light|dark|link" href="#" role="button"></a>-->
-<a name="" id="" class="btn btn-primary" href="/products" role="button">Cancle</a>
+<a name="" id="" class="btn btn-primary" href="/users" role="button">Cancle</a>
 <button type="submit" class="btn btn-success">ADD NEW</button>
 
 </form>
