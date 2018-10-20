@@ -123,20 +123,21 @@ app.post('/product/update', function (req, res) {
 
 
 //routing of delete data
-app.post('/product_delete/:id',function(req,res){
+app.get('/product_delete/:id', function (req, res) {
     var id = req.params.id;
     var sql = 'DELETE FROM products';
-    if(id){
+    if (id) {
         sql += ' where id =' + id;
     }
     db.any(sql)
-        .then(function(data){
-            console.log('DATA :' + data);
-            response.redirect('/products')
-    })
-        .catch(function(error){
-        console.log('ERROR :' + error);
-    })
+        .then(function (data) {
+            console.log('DATA:' + data);
+            res.redirect('/products');
+
+        })
+        .catch(function (error) {
+            console.log('ERROR:' + error);
+        })
 });
 
 
