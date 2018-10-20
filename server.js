@@ -9,6 +9,9 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+var moment = require('moment');
+moment().format();
+
 app.set('view engine', 'ejs');
 
 app.get('/',function(req,res){
