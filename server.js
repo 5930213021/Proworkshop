@@ -31,12 +31,12 @@ app.get('/about',function(req,res){
 });
 
 
-//Display all users
+//Display all users id
 app.get('/users',function(req,res){
      var id= req.param('id');
      var sql = 'select * from users';
      if(id){
-         sql += ' where id=' + id;
+         sql += ' where id=' + id + 'order by id ASC';
      }
      db.any(sql)
      .then(function(data){
@@ -47,8 +47,6 @@ app.get('/users',function(req,res){
         console.log('ERROR :' + error);
      })
  });
-
-//Display all users id
 
 //Display all products แบบธรรมดา
 app.get('/products',function(req,res){
@@ -137,11 +135,10 @@ app.get('/addnewpro',function(req,res){
     res.render('pages/addnewpro')
 });
 
-
+//เพิ่ม routing of user
 app.get('/users/:id',function(req,res){  
-    //เอาidproductมาเตรียมเพื่อจะsaveต่อไป
     var id = req.params.id;
-    var sql = "Select * from users where id =" + id;
+    var sql = "Select * from users where id =" + id ;
     db.any(sql)
     .then(function(data){ 
         res.render('pages/user_edit',{user :data[0]})
