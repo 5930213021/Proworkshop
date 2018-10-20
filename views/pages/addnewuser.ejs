@@ -1,0 +1,33 @@
+<% include ../partials/header %>
+<form action="/products/addnewpro" method="post" >
+<!--b4-from-input-->
+<div class="top"style="padding: 15px;">
+<div class="form-group" >
+  <br><br><br>
+  <label for="">ID</label>
+  <input type="number"
+    class="form-control" value=" " name="id" id="" aria-describedby="helpId" placeholder="">
+  <small id="helpId" class="form-text text-muted">Product ID</small>
+</div>
+
+<div class="form-group">
+  <label for="">Title</label>
+  <input type="text"
+    class="form-control" value=" " name="title" id="" aria-describedby="helpId" placeholder="">
+  <small id="helpId" class="form-text text-muted">Product Title</small>
+</div>
+
+<div class="form-group">
+  <label for="">Price</label>
+  <input type="number"
+    class="form-control" value=" " name="price" id="" aria-describedby="helpId" placeholder="">
+  <small id="helpId" class="form-text text-muted">Product Price</small>
+</div>
+</div> 
+<!-- b4-form-submit-->
+<!--<a name="" id="" class="btn btn-primary|secondary||danger|warning|info|light|dark|link" href="#" role="button"></a>-->
+<a name="" id="" class="btn btn-primary" href="/products" role="button">Cancle</a>
+<button type="submit" class="btn btn-success">ADD NEW</button>
+
+</form>
+<% include ../partials/footer %>
