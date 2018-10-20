@@ -29,4 +29,11 @@
 <button type="submit" class="btn btn-success">SAVE</button>
 <a name="" id=""  class="btn btn-danger" OnClick="JavaScript:fncAlert();" href="/product_delete/<%= product.id %>" role="button">DELETE</a>
 </form>
+
+<script language="javascript">
+function fncAlert(){
+
+alert('Do you want to delete product');
+
+}
 <% include ../partials/footer %>
