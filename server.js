@@ -100,7 +100,7 @@ app.get('/users/:id',function(req,res){
     })
  });
 
-routing of update data
+//routing of update data
 app.post('/products/update',function(req,res){
     var id =req.body.id;
     var title = req.body.title;
