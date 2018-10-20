@@ -3,10 +3,17 @@
 function fncAlert(){
 
 alert('Do you want to delete product');
+var txt;
+    if (confirm("Press a button!")) {
+        txt = "You pressed OK!";
+    } else {
+        txt = "You pressed Cancel!";
+    }
+    document.getElementById("demo").innerHTML = txt;
 
 }
-
 </script>
+
 <form action="/product/update" method="post" >
 <!--b4-from-input-->
 <div class="top"style="padding: 15px;">
