@@ -178,13 +178,13 @@ app.get('/users/:pid',function(req,res){
 //routing of update users edit data
 app.post('/product/update', function (req, res) {
     var id = req.body.id;
-    var title = req.body.title;
-    var price = req.body.price;
-    var sql = `update products set title = '${title}',price = '${price}' where id = '${id}' `;
+    var email = req.body.email;
+    var password = req.body.password;
+    var sql = `update users set email = '${email}', password = '${password}' where id = '${id}' `;
     db.any(sql)
         .then(function (data) {
             console.log('DATA:' + data);
-            res.redirect('/products')
+            res.redirect('/users')
 
         })
         .catch(function (error) {
