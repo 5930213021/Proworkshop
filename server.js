@@ -155,7 +155,7 @@ app.get('/addnewpro',function(req,res){
 
 
 //เพิ่ม routing of users
-app.get('/users/:pid',function(req,res){  
+app.get('/user/:pid',function(req,res){  
     var pid = req.params.pid;
     var sql = "Select * from users where id =" + pid;
     db.any(sql)
@@ -185,7 +185,7 @@ app.post('/user/update', function (req, res) {
 });
 
 //routing of delete users data
-app.get('/users_delete/:id', function (req, res) {
+app.get('/user_delete/:id', function (req, res) {
     var id = req.params.id;
     var sql = 'DELETE from users';
     if (id) {
@@ -203,7 +203,7 @@ app.get('/users_delete/:id', function (req, res) {
 });
 
 //routing of insert data addnewuser.ejs
-app.post('/users/addnewusers',function(req,res){
+app.post('/user/addnewusers',function(req,res){
     var id =req.body.id;
     var email = req.body.email;
     var password = req.body.password;
