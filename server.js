@@ -39,32 +39,6 @@ app.get('/about',function(req,res){
     res.render('pages/about',{ fullname : name , hobbies : hobbies , bdate : bdate });
 });
 
-//Display all products แบบธรรมดา
-app.get('/products',function(req,res){
-    var sql = 'select * from products';
-    db.any(sql)
-    .then(function(data){
-        console.log('DATA :' + data);
-        res.render('pages/products',{products :data})
-    })
-    .catch(function(error){
-        console.log('ERROR :' + error);
-    })
-    });
-
-//เพิ่ม routing of product
-app.get('/products/:pid',function(req,res){  
-    //เอาidproductมาเตรียมเพื่อจะsaveต่อไป
-    var pid = req.params.pid;
-    var sql = "Select * from products where id =" + pid;
-    db.any(sql)
-    .then(function(data){ 
-        res.render('pages/product_edit',{product :data[0]})
-    })
-    .catch(function(error){
-        console.log('ERROR :' + error);
-    })
-});
 
 //Display all users
 app.get('/users',function(req,res){
@@ -100,38 +74,54 @@ app.get('/users/:id',function(req,res){
     })
  });
 
-//routing of update data
-app.post('/product/update',function(req,res){
-    var id =req.body.id;
-    var title = req.body.title;
-    var price = req.body.price;
-    var sql = `Update products set title = '${title}', price = '${price}' where id ='${id}'`;
-    console.log('UPDATE:' +sql);
-    res.redirect('/products'); 
-    res.send(sql);
 
-});
-
-//routing of insert data addnewpro.ejs
-app.post('/products/addnewpro',function(req,res){
-    var id =req.body.id;
-    var title = req.body.title;
-    var price = req.body.price;
-    var sql = `INSERT INTO products (id,title,price) VALUES ('${id}','${title}' ,'${price}')`;
+//Display all products แบบธรรมดา
+app.get('/products',function(req,res){
+    var sql = 'select * from products';
     db.any(sql)
     .then(function(data){
-        res.redirect('/products')
+        console.log('DATA :' + data);
+        res.render('pages/products',{products :data})
     })
-    .catch(function(data){
-        console.log('ERROR :'+ error);
+    .catch(function(error){
+        console.log('ERROR :' + error);
+    })
+    });
+
+
+//เพิ่ม routing of product
+app.get('/products/:pid',function(req,res){  
+    //เอาidproductมาเตรียมเพื่อจะsaveต่อไป
+    var pid = req.params.pid;
+    var sql = "Select * from products where id =" + pid;
+    db.any(sql)
+    .then(function(data){ 
+        res.render('pages/product_edit',{product :data[0]})
+    })
+    .catch(function(error){
+        console.log('ERROR :' + error);
     })
 });
 
-app.get('/addnewpro',function(req,res){
-    //var time = moment().format('MMMM Do , h:mm:ss a');
-    //res.render('pages/addnewpro', { time: time});
-    res.render('pages/addnewpro')
+
+//routing of update product edit data
+app.post('/product/update', function (req, res) {
+    var id = req.body.id;
+    var title = req.body.title;
+    var price = req.body.price;
+    var sql = `update products set title = '${title}',price = '${price}' where id = '${id}' `;
+    //db.none
+    db.any(sql)
+        .then(function (data) {
+            console.log('DATA:' + data);
+            res.redirect('/products')
+
+        })
+        .catch(function (error) {
+            console.log('ERROR:' + error);
+        })
 });
+
 
 //routing of delete data
 app.post('/product_delete/:pid',function(req,res){
@@ -150,6 +140,25 @@ app.post('/product_delete/:pid',function(req,res){
     })
 });
 
+//routing of insert data addnewpro.ejs
+app.post('/products/addnewpro',function(req,res){
+    var id =req.body.id;
+    var title = req.body.title;
+    var price = req.body.price;
+    var sql = `INSERT INTO products (id,title,price) VALUES ('${id}','${title}' ,'${price}')`;
+    db.any(sql)
+    .then(function(data){
+        res.redirect('/products')
+    })
+    .catch(function(data){
+        console.log('ERROR :'+ error);
+    })
+});
+app.get('/addnewpro',function(req,res){
+    //var time = moment().format('MMMM Do , h:mm:ss a');
+    //res.render('pages/addnewpro', { time: time});
+    res.render('pages/addnewpro')
+});
 
 var port = process.env.PORT || 8080;
 app.listen(port, function() {
