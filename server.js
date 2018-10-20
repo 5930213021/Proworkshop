@@ -122,7 +122,7 @@ app.post('/product/update', function (req, res) {
 });
 
 
-//routing of delete data
+//routing of delete products data
 app.get('/product_delete/:id', function (req, res) {
     var id = req.params.id;
     var sql = 'DELETE FROM products';
@@ -185,6 +185,23 @@ app.post('/product/update', function (req, res) {
         .then(function (data) {
             console.log('DATA:' + data);
             res.redirect('/users')
+        })
+        .catch(function (error) {
+            console.log('ERROR:' + error);
+        })
+});
+
+//routing of delete users data
+app.get('/user_delete/:id', function (req, res) {
+    var id = req.params.id;
+    var sql = 'DELETE from users';
+    if (id) {
+        sql += ' where id =' + id;
+    }
+    db.any(sql)
+        .then(function (data) {
+            console.log('DATA:' + data);
+            res.redirect('/products');
 
         })
         .catch(function (error) {
