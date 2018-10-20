@@ -201,12 +201,32 @@ app.get('/user_delete/:id', function (req, res) {
     db.any(sql)
         .then(function (data) {
             console.log('DATA:' + data);
-            res.redirect('/products');
+            res.redirect('/users');
 
         })
         .catch(function (error) {
             console.log('ERROR:' + error);
         })
+});
+
+//routing of insert data addnewuser.ejs
+app.post('/products/addnewpro',function(req,res){
+    var id =req.body.id;
+    var title = req.body.title;
+    var price = req.body.price;
+    var sql = `INSERT INTO products (id,title,price) VALUES ('${id}','${title}' ,'${price}')`;
+    db.any(sql)
+    .then(function(data){
+        res.redirect('/products')
+    })
+    .catch(function(data){
+        console.log('ERROR :'+ error);
+    })
+});
+app.get('/addnewpro',function(req,res){
+    //var time = moment().format('MMMM Do , h:mm:ss a');
+    //res.render('pages/addnewpro', { time: time});
+    res.render('pages/addnewpro')
 });
 
 var port = process.env.PORT || 8080;
