@@ -208,7 +208,6 @@ app.post('/user/addnewusers',function(req,res){
     var email = req.body.email;
     var password = req.body.password;
     var sql = `INSERT INTO users (id,email,password) VALUES ('${id}','${email}' ,'${password}')`;
-    console.log('UPDATE:' + sql);
     db.any(sql)
     .then(function(data){
         res.redirect('/users')
