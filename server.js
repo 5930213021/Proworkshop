@@ -123,8 +123,8 @@ app.post('/product/update', function (req, res) {
 
 
 //routing of delete data
-app.post('/product_delete/:pid',function(req,res){
-    var pid = req.params.pid;
+app.post('/product_delete/:id',function(req,res){
+    var pid = req.params.id;
     var sql = `DELETE from products `;
     if(id){
         sql += ' where id =' + id;
