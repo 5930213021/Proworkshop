@@ -161,6 +161,20 @@ app.get('/addnewpro',function(req,res){
     res.render('pages/addnewpro')
 });
 
+//เพิ่ม routing of users
+app.get('/users/:pid',function(req,res){  
+    //เอาidproductมาเตรียมเพื่อจะsaveต่อไป
+    var pid = req.params.pid;
+    var sql = "Select * from products where id =" + pid;
+    db.any(sql)
+    .then(function(data){ 
+        res.render('pages/product_edit',{product :data[0]})
+    })
+    .catch(function(error){
+        console.log('ERROR :' + error);
+    })
+});
+
 var port = process.env.PORT || 8080;
 app.listen(port, function() {
 console.log('App is running on http://localhost:' + port);
