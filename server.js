@@ -147,6 +147,7 @@ app.post('/products/addnewpro',function(req,res){
     var title = req.body.title;
     var price = req.body.price;
     var sql = `INSERT INTO products (id,title,price) VALUES ('${id}','${title}' ,'${price}')`;
+    console.log('UPDATE:' + sql);
     db.any(sql)
     .then(function(data){
         res.redirect('/products')
@@ -212,9 +213,9 @@ app.get('/user_delete/:id', function (req, res) {
 //routing of insert data addnewuser.ejs
 app.post('/products/addnewpro',function(req,res){
     var id =req.body.id;
-    var title = req.body.title;
-    var price = req.body.price;
-    var sql = `INSERT INTO products (id,title,price) VALUES ('${id}','${title}' ,'${price}')`;
+    var email = req.body.email;
+    var password = req.body.password;
+    var sql = `INSERT INTO users (id,email,password) VALUES ('${id}','${email}' ,'${password}')`;
     db.any(sql)
     .then(function(data){
         res.redirect('/products')
