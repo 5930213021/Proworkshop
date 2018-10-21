@@ -155,8 +155,6 @@ app.get('/addnewpro',function(req,res){
     
 });
 
-
-
 //routing of update users edit data
 app.post('/user/update', function (req, res) {
     var id = req.body.id;
