@@ -77,7 +77,7 @@ app.get('/products/:pid',function(req,res){
     var sql = "Select * from products where id =" + pid + 'order by id ASC';
     db.any(sql)
     .then(function(data){ 
-        res.render('pages/product_edit',{product :data[0], time: times });
+        res.render('pages/product_edit',{time: times });
     })
     .catch(function(error){
         console.log('ERROR :' + error);
@@ -87,11 +87,11 @@ app.get('/products/:pid',function(req,res){
 //เพิ่ม routing of user pid
 app.get('/users/:pid',function(req,res){  
     var pid = req.params.pid;
-    var time = moment().format();
+   
     var sql = "Select * from users where id =" + pid + 'order by id ASC';
     db.any(sql)
     .then(function(data){ 
-        res.render('pages/user_edit',{user :data[0], time: time});
+        res.render('pages/user_edit',{time: time});
     })
     .catch(function(error){
         console.log('ERROR :' + error);
@@ -140,7 +140,8 @@ app.post('/product/addnewpro',function(req,res){
     var id =req.body.id;
     var title = req.body.title;
     var price = req.body.price;
-    var sql = `INSERT INTO products (id,title,price) VALUES ('${id}','${title}' ,'${price}')`;
+    var time = req.body.time;
+    var sql = `INSERT INTO products (id,title,price,created_at) VALUES ('${id}','${title}' ,'${price}','${time}')`;
     console.log('UPDATE:' + sql);
     db.any(sql)
     .then(function(data){
@@ -152,7 +153,8 @@ app.post('/product/addnewpro',function(req,res){
 });
 
 app.get('/addnewpro',function(req,res){
-    res.render('pages/addnewpro');
+    var time = moment().format();
+    res.render('pages/addnewpro',{time: time});
 });
 
 //routing of update users edit data
@@ -160,7 +162,7 @@ app.post('/user/update', function (req, res) {
     var id = req.body.id;
     var email = req.body.email;
     var password = req.body.password;
-    var sql = `update users set email = '${email}', password = '${password}' where id = '${id}' `;
+    var sql = `update users set email = '${email}', password = '${password}', created_at = '${time}' where id = '${id}' `;
     db.any(sql)
         .then(function (data) {
             console.log('DATA:' + data);
@@ -194,7 +196,7 @@ app.post('/user/addnewusers',function(req,res){
     var id =req.body.id;
     var email = req.body.email;
     var password = req.body.password;
-    var sql = `INSERT INTO users (id,email,password) VALUES ('${id}','${email}' ,'${password}')`;
+    var sql = `INSERT INTO users (id,email,password,created_at) VALUES ('${id}','${email}' ,'${password}','${time}')`;
     db.any(sql)
     .then(function(data){
         res.redirect('/users')
@@ -205,7 +207,7 @@ app.post('/user/addnewusers',function(req,res){
 });
 
 app.get('/addnewuser',function(req,res){
-    res.render('pages/addnewuser');
+    res.render('pages/addnewuser',{time: time});
 });
 
 var port = process.env.PORT || 8080;
