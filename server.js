@@ -54,7 +54,7 @@ app.get('/users',function(req,res){
 //Display all products แบบธรรมดา
 app.get('/products',function(req,res){
     var id= req.param('id');
-    var sql = 'select * from products order by product_id ASC';
+    var sql = 'select * from products';
     if(id){
         sql += ' where product_id=' + id + 'order by product_id ASC';
     }
@@ -74,7 +74,7 @@ app.get('/products/:pid',function(req,res){
     //เอาidproductมาเตรียมเพื่อจะsaveต่อไป
     var pid = req.params.pid;
   
-    var sql = "Select * from products where product_id =" + pid + 'order by product_id ASC';
+    var sql = "Select * from products where product_id =" + pid;
     db.any(sql)
     .then(function(data){ 
         res.render('pages/product_edit',{time: times });
@@ -88,7 +88,7 @@ app.get('/products/:pid',function(req,res){
 app.get('/users/:pid',function(req,res){  
     var pid = req.params.pid;
    
-    var sql = "Select * from users where user_id =" + pid + 'order by user_id ASC';
+    var sql = "Select * from users where user_id =" + pid ;
     db.any(sql)
     .then(function(data){ 
         res.render('pages/user_edit',{time: time});
