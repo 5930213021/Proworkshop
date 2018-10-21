@@ -160,14 +160,15 @@ app.post('/users/update', function (req, res) {
     var id = req.body.id;
     var email = req.body.email;
     var password = req.body.password;
-    var sql = `update users set email = '${email}', password = '${password}', created_at = '${time}' where user_id = '${id}' `;
-    db.any(sql)
+    var sql = `update users set email ='${email}',password= '${password}'  where user_id = '${id}'`;
+    db.query(sql)
         .then(function (data) {
-            console.log('DATA:' + data);
             res.redirect('/users')
+
         })
-        .catch(function (error) {
-            console.log('ERROR:' + error);
+        .catch(function (data) {
+            console.log('ERROR:' + console.error);
+
         })
 });
 
