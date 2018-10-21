@@ -150,12 +150,8 @@ app.post('/product/addnewpro',function(req,res){
     })
 });
 
-//crate at products
 app.get('/addnewpro',function(req,res){
     res.render('pages/addnewpro');
-   // var time = moment().format('MMMM Do YYYY, h:mm:ss a');
-    //res.render('pages/addnewpro', { time: time});
-    
 });
 
 //routing of update users edit data
@@ -206,12 +202,9 @@ app.post('/user/addnewusers',function(req,res){
         console.log('ERROR :'+ error);
     })
 });
-//crate at users
+
 app.get('/addnewuser',function(req,res){
     res.render('pages/addnewuser');
-    //var time = moment().format('MMMM Do YYYY, h:mm:ss a');
-    //res.render('pages/addnewuser', { time: time});
-    
 });
 
 var port = process.env.PORT || 8080;
