@@ -107,7 +107,6 @@ app.post('/product/update', function (req, res) {
         .then(function (data) {
             console.log('DATA:' + data);
             res.redirect('/products')
-
         })
         .catch(function (error) {
             console.log('ERROR:' + error);
@@ -204,8 +203,9 @@ app.post('/user/addnewusers',function(req,res){
     })
 });
 app.get('/addnewuser',function(req,res){
-    var time = moment().format('MMMM Do YYYY, h:mm:ss a');
-    res.render('pages/addnewuser', { time: time});
+    res.render('pages/addnewuser');
+    //var time = moment().format('MMMM Do YYYY, h:mm:ss a');
+    //res.render('pages/addnewuser', { time: time});
     
 });
 
