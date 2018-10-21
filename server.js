@@ -76,7 +76,7 @@ app.get('/products/:pid', function (req, res) {
     var sql = "select * from products where product_id =" + pid;
     db.any(sql)
         .then(function (data) {
-            res.render('pages/product_edit', { products: data[0],time: times});
+            res.render('pages/product_edit', { product: data[0],time: times});
         })
         .catch(function (data) {
             console.log('ERROR:' + console.error);
