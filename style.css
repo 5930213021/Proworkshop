@@ -1,0 +1,39 @@
+body {
+    overflow-x: hidden;
+    font-family: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+   
+}
+
+.body{
+ background-image: url('image/pii.jpg');
+
+}
+   
+  p {
+    line-height: 1.75;
+  }
+  
+  .picz{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    margin-right : 15px; 
+  }
+  
+  .rounded-circle{
+    width:250px;
+    height:250px;
+    border-width : 6px;
+    border-style : double;
+    color : rgb(255, 255, 255);
+  }
+  
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
