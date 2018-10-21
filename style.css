@@ -37,7 +37,8 @@ h6 {
 }
 
 section {
-  padding:100px 0;
+  padding:100px ;
+  margin-top: 50px;
 }
 section h2.section-heading {
   font-size: 40px;
