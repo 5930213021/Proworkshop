@@ -85,10 +85,9 @@ app.get('/products/:pid',function(req,res){
 });
 
 //เพิ่ม routing of user pid
-app.get('/users/:pid',function(req,res){  
-    var pid = req.params.pid;
-   
-    var sql = "Select * from users where user_id =" + pid ;
+app.get('/users/:id',function(req,res){  
+    var id = req.params.id;
+    var sql = "Select * from users where user_id =" + id ;
     db.any(sql)
     .then(function(data){ 
         res.render('pages/user_edit',{user:data[0],time: time});
