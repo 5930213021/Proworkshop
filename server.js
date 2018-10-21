@@ -69,11 +69,11 @@ app.get('/products',function(req,res){
     });
 
 
-//เพิ่ม routing of product
+//เพิ่ม routing of product pid
 app.get('/products/:pid',function(req,res){  
     //เอาidproductมาเตรียมเพื่อจะsaveต่อไป
     var pid = req.params.pid;
-    
+
     var sql = "Select * from products where id =" + pid;
     db.any(sql)
     .then(function(data){ 
