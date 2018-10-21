@@ -85,18 +85,18 @@ app.get('/products/:pid',function(req,res){
 });
 
 //เพิ่ม routing of user pid
-app.get('/users/:id',function(req,res){  
-    var id = req.params.id;
-    var sql = "select * from users where user_id =" + id ;
+app.get('/users/:id', function (request, response) {
+    var id = request.params.id;
+    var times = moment().format('MMMM Do YYYY, h:mm:ss a');
+    var sql = "select * from users where user_id=" + id;
     db.any(sql)
-    .then(function(data){ 
-        res.render('pages/user_edit',{users: data[0],time: time});
-    })
-    .catch(function(error){
-        console.log('ERROR :' + error);
-    })
+        .then(function (data) {
+            response.render('pages/users_edit', { user: data[0],time: times});
+        })
+        .catch(function (data) {
+            console.log('ERROR:' + console.error);
+        })
 });
-
 //routing of update product edit data
 app.post('/product/update', function (req, res) {
     var id = req.body.id;
