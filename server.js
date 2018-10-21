@@ -74,10 +74,10 @@ app.get('/products/:pid',function(req,res){
     //เอาidproductมาเตรียมเพื่อจะsaveต่อไป
     var pid = req.params.pid;
   
-    var sql = "Select * from products where product_id =" + pid;
+    var sql = "select * from products where product_id =" + pid;
     db.any(sql)
     .then(function(data){ 
-        res.render('pages/product_edit',{product:data[0],time: times });
+        res.render('pages/product_edit',{products: data[0],time: times });
     })
     .catch(function(error){
         console.log('ERROR :' + error);
@@ -87,10 +87,10 @@ app.get('/products/:pid',function(req,res){
 //เพิ่ม routing of user pid
 app.get('/users/:id',function(req,res){  
     var id = req.params.id;
-    var sql = "Select * from users where user_id =" + id ;
+    var sql = "select * from users where user_id =" + id ;
     db.any(sql)
     .then(function(data){ 
-        res.render('pages/user_edit',{user:data[0],time: time});
+        res.render('pages/user_edit',{users: data[0],time: time});
     })
     .catch(function(error){
         console.log('ERROR :' + error);
