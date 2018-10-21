@@ -73,11 +73,11 @@ app.get('/products',function(req,res){
 app.get('/products/:pid',function(req,res){  
     //เอาidproductมาเตรียมเพื่อจะsaveต่อไป
     var pid = req.params.pid;
-
+    var times = moment().format('MMMM Do YYYY, h:mm:ss a');
     var sql = "Select * from products where id =" + pid;
     db.any(sql)
     .then(function(data){ 
-        res.render('pages/product_edit',{product :data[0]})
+        res.render('pages/product_edit',{product :data[0], time: times });
     })
     .catch(function(error){
         console.log('ERROR :' + error);
@@ -87,10 +87,11 @@ app.get('/products/:pid',function(req,res){
 //เพิ่ม routing of user pid
 app.get('/users/:pid',function(req,res){  
     var pid = req.params.pid;
+    var times = moment().format('MMMM Do YYYY, h:mm:ss a');
     var sql = "Select * from users where id =" + pid ;
     db.any(sql)
     .then(function(data){ 
-        res.render('pages/user_edit',{user :data[0]})
+        res.render('pages/user_edit',{user :data[0], time: times});
     })
     .catch(function(error){
         console.log('ERROR :' + error);
@@ -148,9 +149,12 @@ app.post('/product/addnewpro',function(req,res){
         console.log('ERROR :'+ error);
     })
 });
+
+//crate at products
 app.get('/addnewpro',function(req,res){
-    var time = moment().format('MMMM Do YYYY, h:mm:ss a');
-    res.render('pages/addnewpro', { time: time});
+    res.render('pages/addnewpro');
+   // var time = moment().format('MMMM Do YYYY, h:mm:ss a');
+    //res.render('pages/addnewpro', { time: time});
     
 });
 
@@ -202,6 +206,7 @@ app.post('/user/addnewusers',function(req,res){
         console.log('ERROR :'+ error);
     })
 });
+//crate at users
 app.get('/addnewuser',function(req,res){
     res.render('pages/addnewuser');
     //var time = moment().format('MMMM Do YYYY, h:mm:ss a');
