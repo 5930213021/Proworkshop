@@ -1,10 +1,7 @@
 body {
     overflow-x: hidden;
-    font-family: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-   
 }
 
-   
   p {
     line-height: 1.75;
   }
@@ -101,4 +98,9 @@ h6 {
       padding: 12px 0;
     }
   }
+
+.header{
+  margin-top: 100px;
+
+}
 
