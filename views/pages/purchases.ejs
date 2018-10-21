@@ -1,0 +1,33 @@
+<% include ../partials/header %>
+
+ <br>
+ <h2>Report Purchases List</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>E-mail</th>
+            <th>Title</th>
+            <th>Quantity</th>
+            <th>Amount</th>
+        </tr>
+    </thead>
+    <tbody id="myTable">
+     <% purchases.forEach(function(purchas){ %>
+        <tr>
+            <td scope="row"><%= purchas.name %></td>
+            <td><%= purchas.email %></td>
+            <td><%= purchas.title %></td>
+            <td><%= purchas.quantity %></td>
+            <td><%= purchas.tatol %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+</table>
+
+
+
+
+
+
+  <% include ../partials/footer %>

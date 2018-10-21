@@ -18,11 +18,11 @@
     <tbody id="myTable">
         <% users.forEach(function(user) { %>
         <tr>
-            <td scope="row"><%= user.id %></td>
+            <td scope="row"><%= user.user_id %></td>
             <td><%= user.email %></td>
             <td><%= user.password %></td>
             <td><a class="btn btn-warning" href="/users/<%= user.id %>" role="button">Edit</a>
-                <a name="" id=""  class="btn btn-danger" href="/user_delete/<%= user.id %>" role="button">DELETE</a>
+                <a name="" id=""  class="btn btn-danger" href="/user_delete/<%= user.user_id %>" role="button">DELETE</a>
             </td>
         </tr>
         <% }); %>
