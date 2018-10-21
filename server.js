@@ -192,7 +192,7 @@ app.get('/user_delete/:id', function (req, res) {
 });
 
 //routing of insert data addnewuser.ejs
-app.post('/user/addnewusers',function(req,res){
+app.post('/user/addnewuser',function(req,res){
     var id =req.body.id;
     var email = req.body.email;
     var password = req.body.password;
