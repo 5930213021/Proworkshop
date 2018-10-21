@@ -6,7 +6,11 @@
             <th>ID</th>
             <th>Title</th>
             <th>Price</th>
+            <th>Edit</th>
+            <th>delete</th>
             <th><a class="btn btn-secondary" href="/addnewpro" role="button">NewProduct</a></th>
+            
+
         </tr>
     </thead>
      <tbody id="myTable">
@@ -16,11 +20,10 @@
             <td scope="row"><%= product.id %></td>
             <td><%= product.title %></td>
             <td><%= product.price %></td>
-            <td><a class="btn btn-warning" href="/products/<%= product.id %>" role="button">Edit</a>
-                <a name="btnConfirm" value="Confirm"  class="btn btn-danger" href="/product_delete/<%= product.id %>" 
-                onclick="return confirm('Are you sure you want to delete?')"role="button">DELETE</a></td>
-                <a name="" id=""  class="btn btn-danger" href="/product_delete/<%= product.id %>" role="button">DELETE</a>
-            </td>
+            <td><a class="btn btn-warning" href="/products/<%= product.id %>" role="button">Edit</a></td>
+              <td>  <a name="btnConfirm" value="Confirm"  class="btn btn-danger" href="/product_delete/<%= product.id %>" onclick="return confirm('Are you sure you want to delete?')"role="button">DELETE</a></td>
+                
+            
         </tr>
         <% }); %>
         
