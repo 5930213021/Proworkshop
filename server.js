@@ -53,6 +53,7 @@ app.get('/users',function(req,res){
 
 //Display all products แบบธรรมดา
 app.get('/products',function(req,res){
+    var id= req.param('id');
     var sql = 'select * from products';
     if(id){
         sql += ' where id=' + id + 'order by id ASC';
