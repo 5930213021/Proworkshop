@@ -88,7 +88,7 @@ app.get('/products/:pid',function(req,res){
 app.get('/users/:id', function (req, res) {
     var id = req.params.id;
     var times = moment().format('MMMM Do YYYY, h:mm:ss a');
-    var sql = "select * from users where user_id=" + id;
+    var sql = "select * from users where user_id =" + id;
     db.any(sql)
         .then(function (data) {
             res.render('pages/user_edit', { user: data[0],time: times});
