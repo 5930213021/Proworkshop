@@ -73,7 +73,7 @@ app.get('/products',function(req,res){
 app.get('/products/:pid',function(req,res){  
     //เอาidproductมาเตรียมเพื่อจะsaveต่อไป
     var pid = req.params.pid;
-    var times = moment().format('MMMM Do YYYY, h:mm:ss a');
+  
     var sql = "Select * from products where id =" + pid + 'order by id ASC';
     db.any(sql)
     .then(function(data){ 
@@ -87,11 +87,11 @@ app.get('/products/:pid',function(req,res){
 //เพิ่ม routing of user pid
 app.get('/users/:pid',function(req,res){  
     var pid = req.params.pid;
-    var times = moment().format('MMMM Do YYYY, h:mm:ss a');
+    var time = moment().format();
     var sql = "Select * from users where id =" + pid + 'order by id ASC';
     db.any(sql)
     .then(function(data){ 
-        res.render('pages/user_edit',{user :data[0], time: times});
+        res.render('pages/user_edit',{user :data[0], time: time});
     })
     .catch(function(error){
         console.log('ERROR :' + error);
@@ -103,7 +103,8 @@ app.post('/product/update', function (req, res) {
     var id = req.body.id;
     var title = req.body.title;
     var price = req.body.price;
-    var sql = `update products set title = '${title}',price = '${price}' where id = '${id}' `;
+    var time = req.body.time;
+    var sql = `update products set title = '${title}',price = '${price}', created_at = '${time}' where id = '${id}' `;
     db.any(sql)
         .then(function (data) {
             console.log('DATA:' + data);
