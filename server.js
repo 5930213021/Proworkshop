@@ -37,7 +37,7 @@ app.get('/about',function(req,res){
 //Display all users id
 app.get('/users',function(req,res){
      var id= req.param('id');
-     var sql = 'select * from users';
+     var sql = 'select * from users order by id ASC';
      if(id){
          sql += ' where id=' + id + 'order by id ASC';
      }
@@ -54,7 +54,7 @@ app.get('/users',function(req,res){
 //Display all products แบบธรรมดา
 app.get('/products',function(req,res){
     var id= req.param('id');
-    var sql = 'select * from products';
+    var sql = 'select * from products order by id ASC';
     if(id){
         sql += ' where id=' + id + 'order by id ASC';
     }
@@ -74,7 +74,7 @@ app.get('/products/:pid',function(req,res){
     //เอาidproductมาเตรียมเพื่อจะsaveต่อไป
     var pid = req.params.pid;
     var times = moment().format('MMMM Do YYYY, h:mm:ss a');
-    var sql = "Select * from products where id =" + pid;
+    var sql = "Select * from products where id =" + pid + 'order by id ASC';
     db.any(sql)
     .then(function(data){ 
         res.render('pages/product_edit',{product :data[0], time: times });
@@ -88,7 +88,7 @@ app.get('/products/:pid',function(req,res){
 app.get('/users/:pid',function(req,res){  
     var pid = req.params.pid;
     var times = moment().format('MMMM Do YYYY, h:mm:ss a');
-    var sql = "Select * from users where id =" + pid ;
+    var sql = "Select * from users where id =" + pid + 'order by id ASC';
     db.any(sql)
     .then(function(data){ 
         res.render('pages/user_edit',{user :data[0], time: times});
