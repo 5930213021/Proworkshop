@@ -37,9 +37,9 @@ app.get('/about',function(req,res){
 //Display all users id
 app.get('/users',function(req,res){
      var id= req.param('id');
-     var sql = 'select * from users order by user_id ASC';
+     var sql = 'select * from users';
      if(id){
-         sql += ' where user_id=' + id + 'order by user_id ASC';
+         sql += ' where user_id =' + id + ' order by user_id ASC';
      }
      db.any(sql)
      .then(function(data){
