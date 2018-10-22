@@ -1,8 +1,9 @@
 <% include ../partials/header %>
-<script language="JavaScript">
-  function chkConfirm(){
+
+<script>
+  function chkConfirm(id){
     if(confirm('Do you want to delete users?')==true){
-      window.location = "/users_delete/<%= user.user_id %>";
+      window.location = "/users_delete/" + id;
       
    }else{
     return(null);
@@ -43,7 +44,7 @@
 
 <a name="" id="" class="btn btn-primary" href="/users" role="button">Cancle</a>
 <button type="submit" class="btn btn-success">SAVE</button>
-<a name="" id="" OnClick="chkConfirm()"class="btn btn-danger" href="#" role="button">DELETE</a>
+<a name="" id="<%= user.user_id %>" onclick="chkConfirm(this.id)"class="btn btn-danger" href="#" role="button">DELETE</a>
 </form>
 
 

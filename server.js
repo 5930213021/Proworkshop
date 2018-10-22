@@ -87,13 +87,14 @@ app.get('/products/:pid', function (req, res) {
 app.get('/users/:id', function (req, res) {
     var id = req.params.id;
     var times = moment().format('MMMM Do YYYY, h:mm:ss a');
-    var sql = "select * from users where user_id =" + id;
+    var sql = "SELECT * FROM users WHERE user_id=" + id;
+    console.log(sql)
     db.any(sql)
         .then(function (data) {
             res.render('pages/user_edit', { user: data[0],time: times});
         })
-        .catch(function (data) {
-            console.log('ERROR:' + console.error);
+        .catch(function (err) {
+            console.log('ERROR AT USER:' + err);
         })
 });
 
@@ -180,9 +181,9 @@ app.get('/user_delete/:id', function (req, res) {
     if (id) {
         sql += ' where user_id =' + id;
     }
-    db.any(sql)
+    db.none(sql)
         .then(function (data) {
-            console.log('DATA:' + data);
+            console.log('DATA:');
             res.redirect('/users');
 
         })
