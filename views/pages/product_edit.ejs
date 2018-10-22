@@ -1,14 +1,6 @@
 <% include ../partials/header %>
-<script language="JavaScript">
-  function chkConfirm(){
-    if(confirm('Do you want to delete product?')==true){
-      window.location = "/product_delete/<%= product.product_id %>";
-      
-   }else{
-    return(null);
-  }
-}
-</script>
+
+
 
 <form action="/product/update" method="post" >
 <div class="top"style="padding: 15px;">
@@ -43,7 +35,9 @@
 
 <a name="" id="" class="btn btn-primary" href="/products" role="button">Cancle</a>
 <button type="submit" class="btn btn-success">SAVE</button>
-<a name="" id="" OnClick="chkConfirm()"class="btn btn-danger" href="#" role="button">DELETE</a>
+
+
+
 </form>
 
 
