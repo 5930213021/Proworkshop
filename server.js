@@ -54,7 +54,7 @@ app.get('/users',function(req,res){
 //Display all products แบบธรรมดา
 app.get('/products',function(req,res){
     var id= req.param('id');
-    var sql = 'select * from products order by user_id ASC';
+    var sql = 'select * from products';
     if(id){
         sql += ' where product_id=' + id + 'order by product_id ASC';
     }
@@ -96,6 +96,7 @@ app.get('/users/:id', function (req, res) {
             console.log('ERROR:' + console.error);
         })
 });
+
 //routing of update product edit data
 app.post('/product/update', function (req, res) {
     var id = req.body.id;
