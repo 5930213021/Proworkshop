@@ -88,7 +88,7 @@ app.get('/users/:id', function (req, res) {
     var id = req.params.id;
     var times = moment().format('MMMM Do YYYY, h:mm:ss a');
     var sql = "SELECT * FROM users WHERE user_id=" + id;
-    console.log(sql)
+    console.log(req.params)
     db.any(sql)
         .then(function (data) {
             res.render('pages/user_edit', { user: data[0],time: times});
@@ -183,7 +183,7 @@ app.get('/user_delete/:id', function (req, res) {
     }
     db.none(sql)
         .then(function (data) {
-            console.log('DATA:');
+            console.log('DATA:'+ data);
             res.redirect('/users');
 
         })

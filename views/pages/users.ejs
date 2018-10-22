@@ -26,37 +26,39 @@
             <td><%= user.email %></td>
             <td><%= user.password %></td>
             <td><a class="btn btn-warning" href="/users/<%= user.user_id %>" role="button">Edit</a></td>
-         
             <td>
-            <!--Button trigger modal -->
-            <button name="btnConfirm" value="Confirm" type="button" class="btn btn-danger"  data-toggle="modal" data-target="#exampleModal">DELETE</button>
-
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">DELETE</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">Are you sure you want to delete?</div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancle</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal"  href="/user_delete/<%= user.user_id %>">Delete</button> 
-                    </div>
-                    </div>
-                </div>
-            </div>
+                <button type="button" class="btn btn-danger" data-target="#exampleModalCenter" onclick="deleteUser(<%= user.user_id %>);">
+                Delete
+                </button>
             </td>
-
         </tr>
 
         <% }); %>
-        
+
     </tbody>
+    
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Alert</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+              <button type="button" class="btn btn-danger" onclick="confirmDelete()">Delete</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
 </table>
+
+
 
 <script>
 $(document).ready(function(){
@@ -69,8 +71,18 @@ $(document).ready(function(){
 });
 </script>
 
-
-
+<script>
+        var selectedUser = 0;
+        function deleteUser(id){
+            console.log(id);
+            selectedUser = id;
+            $('#exampleModalCenter').modal('show')
+        }
+        function confirmDelete(){
+            console.log('confirm:'+selectedUser);
+            window.location.href = '/user_delete/'+selectedUser;
+        }        
+</script>
 
 
 <% include ../partials/footer %>

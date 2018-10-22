@@ -3,7 +3,7 @@
 <script>
   function chkConfirm(id){
     if(confirm('Do you want to delete users?')==true){
-      window.location = "/users_delete/" + id;
+      window.location = "/user_delete/" + id;
       
    }else{
     return(null);
@@ -12,7 +12,7 @@
 </script>
 
 <form action="/users/update" method="post" >
-<div class="top"style="padding: 15px;">
+<div class="top" style="padding: 15px;">
 
 <div class="form-group">
   <label for="">ID</label>
