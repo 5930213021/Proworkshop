@@ -37,7 +37,7 @@ app.get('/about',function(req,res){
 //Display all users id
 app.get('/users',function(req,res){
      var id= req.param('id');
-     var sql = 'select * from users';
+     var sql = 'select * from users order by user_id ASC';
      if(id){
          sql += ' where user_id =' + id + ' order by user_id ASC';
      }
@@ -54,7 +54,7 @@ app.get('/users',function(req,res){
 //Display all products แบบธรรมดา
 app.get('/products',function(req,res){
     var id= req.param('id');
-    var sql = 'select * from products';
+    var sql = 'select * from products order by user_id ASC';
     if(id){
         sql += ' where product_id=' + id + 'order by product_id ASC';
     }
