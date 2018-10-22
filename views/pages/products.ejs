@@ -30,13 +30,35 @@
             <td><%= product.title %></td>
             <td><%= product.price %></td>
             <td><a class="btn btn-warning" href="/products/<%= product.product_id %>" role="button">Edit</a></td>
-              <td>  <a name="btnConfirm" value="Confirm"  class="btn btn-danger" href="/product_delete/<%= product.product_id %>" 
-              onclick="return confirm('Are you sure you want to delete?')"role="button">DELETE</a></td> 
+            <td>
+                <button type="button" class="btn btn-danger" data-target="#exampleModalCenter" onclick="deletePro(<%= product.product_id %>);">
+                Delete
+                </button>
+            </td>
         </tr>
         <% }); %>
         
-        
     </tbody>
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Alert</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+              <button type="button" class="btn btn-danger" onclick="confirmDelete()">Delete</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
 </table>
 
 <script>
@@ -50,6 +72,18 @@ $(document).ready(function(){
 });
 </script>
 
+<script>
+    var selectedPro = 0;
+    function deletePro(id){
+        console.log(id);
+        selectedPro = id;
+        $('#exampleModalCenter').modal('show')
+    }
+    function confirmDelete(){
+        console.log('confirm:'+selectedPro);
+        window.location.href = '/product_delete/'+selectedPro;
+    }        
+</script>
 
 
 
