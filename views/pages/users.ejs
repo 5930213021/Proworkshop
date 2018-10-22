@@ -30,7 +30,7 @@
                 onclick="return confirm('Are you sure you want to delete?')"role="button">DELETE</a></td> -->
 
             <!--Button trigger modal -->
-            <button name="btnConfirm" value="Confirm" type="button" class="btn btn-danger"  data-toggle="modal" >DELETE</button>
+            <button name="btnConfirm" value="Confirm" type="button" class="btn btn-danger"  data-toggle="modal" data-target="#exampleModal">DELETE</button>
 
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -44,8 +44,8 @@
                     </div>
                     <div class="modal-body">Are you sure you want to delete?</div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancle</button>
+                        <button type="button" class="btn btn-danger">Delete</button>
                     </div>
                     </div>
                 </div>
