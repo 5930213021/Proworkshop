@@ -26,9 +26,8 @@
             <td><%= user.email %></td>
             <td><%= user.password %></td>
             <td><a class="btn btn-warning" href="/users/<%= user.user_id %>" role="button">Edit</a></td>
-          <!--  <td><a name="btnConfirm" value="Confirm"  class="btn btn-danger" href="/user_delete/<%= user.user_id %>"
-                onclick="return confirm('Are you sure you want to delete?')"role="button">DELETE</a></td> -->
-
+         
+            <td>
             <!--Button trigger modal -->
             <button name="btnConfirm" value="Confirm" type="button" class="btn btn-danger"  data-toggle="modal" data-target="#exampleModal">DELETE</button>
 
@@ -50,6 +49,8 @@
                     </div>
                 </div>
             </div>
+            </td>
+
         </tr>
 
         <% }); %>
