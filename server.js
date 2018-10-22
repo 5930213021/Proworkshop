@@ -72,11 +72,11 @@ app.get('/products',function(req,res){
 //เพิ่ม routing of product pid
 app.get('/products/:pid', function (req, res) {
     var pid = req.params.pid;
-    var times = moment().format('MMMM Do YYYY, h:mm:ss a');
+    var time = moment().format('MMMM Do YYYY, h:mm:ss a');
     var sql = "select * from products where product_id =" + pid;
     db.any(sql)
         .then(function (data) {
-            res.render('pages/product_edit', { product: data[0],time: times});
+            res.render('pages/product_edit', { product: data[0],time: time});
         })
         .catch(function (data) {
             console.log('ERROR:' + console.error);
