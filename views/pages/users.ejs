@@ -45,7 +45,7 @@
                     <div class="modal-body">Are you sure you want to delete?</div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancle</button>
-                        <button type="button" class="btn btn-danger" OnClick="chkConfirm()">Delete</button> 
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" >Delete</button> 
                     </div>
                     </div>
                 </div>
@@ -73,16 +73,6 @@ $(document).ready(function(){
 });
 </script>
 
-<script language="JavaScript">
-  function chkConfirm(){
-    if(confirm('Do you want to delete product?')==true){
-      window.location = "/product_delete/<%= product.product_id %>";
-      
-   }else{
-    return(null);
-  }
-}
-</script>
 
 
 
