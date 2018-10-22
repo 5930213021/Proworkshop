@@ -1,9 +1,11 @@
 <% include ../partials/header %>
 <form action="/product/addnewpro" method="post" >
+
+
 <!--b4-from-input-->
-<div class="top"style="padding: 15px;">
+<div class="jumbotron">
 <div class="form-group" >
-  <br><br><br>
+  <h1 class="display-12">ADD NEW PRODUCTS</h1><br>
   <label for="">ID</label>
   <input type="number"
     class="form-control" value=" " name="id" id="" aria-describedby="helpId" placeholder="">
@@ -32,9 +34,11 @@
 </div>
 
 
-<!--<a name="" id="" class="btn btn-primary|secondary||danger|warning|info|light|dark|link" href="#" role="button"></a>-->
+<br><br>
 <button type="submit" class="btn btn-success">ADD NEW</button>
+&nbsp;
 <a name="" id="" class="btn btn-primary" href="/products" role="button">Cancle</a>
 
+</div>
 </form>
 <% include ../partials/footer %>

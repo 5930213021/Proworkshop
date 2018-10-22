@@ -1,7 +1,11 @@
 <% include ../partials/header %>
-&nbsp;
+&nbsp;<div class="jumbotron">
+<div class="col-12">
 <h2 class="text-left">Report User Top 25</h2>
+</div><br>
+
 <canvas id="bar-chart" width="800" height="450"></canvas>
+<br><br>
 <table class="table">
     <thead>
         <tr>
@@ -24,7 +28,7 @@
         <% }); %>
     </tbody>
 </table>
-
+</div>
 
 <script>
 $(document).ready(function(){
@@ -45,7 +49,6 @@ function getRandomColor() {
     return color;
 }
 
- 
 var labelss=[]
 var data=[]
 var color=[]

@@ -220,8 +220,6 @@ app.get('/purchases_item', function(req, res){
     db.multi(sql)
     .then(function  (data) 
     {
- 
-        // console.log('DATA' + data);
         res.render('pages/purchases_item', { products: data[0],sum: data[1]});
     })
     .catch(function (data) 
@@ -243,8 +241,6 @@ app.get('/purchases', function(req, res) {
             console.log('ERROR' + error);
         })
 });
-
-
 
 
 var port = process.env.PORT || 8080;
