@@ -1,112 +1,16 @@
 <% include ../partials/header %>
 
-<div class="row text-center" style="background-color: #e3f2fd;">
+<div class="row text-center" style="background-color: rgb(253, 214, 214);">
         <div class="col-md-12">
             <h1><%= fullname %></h1>
+            <h2>-  5930213021 SE  -</h2>
             <p class="text-muted">“If they stare, let them stare. You can’t blend in when you were born to stand out.” </p>
-            <h3><%= bdate %></h3>
-            
+            <h4>Brith of date : <%= bdate %></h4>
             <% hobbies.forEach(function(hobby) { %>
-               <div class="row">
-                <ul><%= hobby %></ul></div>
+                <ul><%= hobby %></ul>
             <% }); %>
                 <br>
-        
         </div>
 </div>
-
 <br><br>
-
-<div class="row">
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                <i class="fa fa-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="image/11.jpg" alt="">
-          </a>
-          <div class="portfolio-caption">
-            <h4>いち</h4>
-            <p class="text-muted">March 4,2014</p>
-          </div>
-        </div>
-</div>
-
-<style>
-#portfolio .portfolio-item {
-    right: 0;
-    margin: 0 0 15px;
-  }
-  
-  #portfolio .portfolio-item .portfolio-link {
-    position: relative;
-    display: block;
-    max-width: 400px;
-    margin: 0 auto;
-    cursor: pointer;
-  }
-  
-  #portfolio .portfolio-item .portfolio-link .portfolio-hover {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-transition: all ease 0.5s;
-    -moz-transition: all ease 0.5s;
-    transition: all ease 0.5s;
-    opacity: 0;
-  }
-  
-  #portfolio .portfolio-item .portfolio-link .portfolio-hover:hover {
-    opacity: 1;
-  }
-  
-  #portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content {
-    font-size: 20px;
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    height: 20px;
-    margin-top: -12px;
-    text-align: center;
-   
-   
-  }
-  
-  #portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content i {
-    margin-top: -12px;
-  }
-  
-  #portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content h3,
-  #portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content h4 {
-    margin: 0;
-  }
-  
-  #portfolio .portfolio-item .portfolio-caption {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 25px;
-    text-align: center;
-    background-color: rgb(255, 255, 255);
-  }
-  
-  #portfolio .portfolio-item .portfolio-caption h4 {
-    margin: 0;
-    text-transform: none;
-  }
-  
-  #portfolio .portfolio-item .portfolio-caption p {
-    font-size: 16px;
-    font-style: italic;
-    margin: 0;
-   
-    font-family: 'Kaushan Script', 'Helvetica Neue', Helvetica, Arial, cursive;
-  }
-  
-  #portfolio * {
-    z-index: 2;
-  }
-</style>
-
  <% include ../partials/footer %>

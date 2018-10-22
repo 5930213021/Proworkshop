@@ -5,20 +5,25 @@
         <div class="col-md-12 text-center">
             <h1 class="display-12">PRODUCTS</h1>
             <p>Type something in the input field to search the table for first names, last names or emails:</p>  
+            <br><br>
             <input class="form-control" id="myInput" type="text" placeholder="Search..">
         </div>
     </div>
 </div>
+<br><br><br>
 
 
-
+<div class="jumbotron">
+<div class="col-rg-12 text-center">
+<a class="btn btn-secondary" href="/addnewpro" role="button">  New Product  </a>
+</div>
 <table class="table">
     <thead>
         <tr>
             <th>ID</th>
             <th>Title</th>
             <th>Price</th>
-             <th><a class="btn btn-secondary" href="/addnewpro" role="button">  New Product  </a></th><th></th>
+            <!-- <th><a class="btn btn-secondary" href="/addnewpro" role="button">  New Product  </a></th> -->
            
            
         </tr>
@@ -59,7 +64,7 @@
     </div>
 
 </table>
-
+</div>
 <script>
 $(document).ready(function(){
   $("#myInput").on("keyup", function() {
